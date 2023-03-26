@@ -10,11 +10,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-@Service
-@RequiredArgsConstructor
 @Slf4j
+@RequiredArgsConstructor
+@Service
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
 
@@ -36,6 +35,7 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findAll()
                 .stream()
                 .map(ProductResponse::mapToProductResponse)
-                .collect(Collectors.toList());
+                .toList();
     }
 }
+
